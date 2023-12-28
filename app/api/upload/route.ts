@@ -19,8 +19,8 @@ export const POST = async (req: Request) => {
     try {
         await writeFile(imagePath, buffer)
         return NextResponse.json(imageUrl, {status: 200})
-    }catch (e) {
-        return NextResponse.json("Something went wrong", {status: 500})
+    }catch (e: any) {
+        return NextResponse.json(`erreur ${e.message}`, {status: 500})
     }
 }
 
